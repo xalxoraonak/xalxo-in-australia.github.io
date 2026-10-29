@@ -175,14 +175,19 @@
             width: 100%;
         }
 
-        .media-block img {
-            display: block;
+        /* Self-contained styling for standalone vector layout blocks */
+        .graphic-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #EBF3FF;
+            padding: 40px 0;
             width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: contain;
-            background-color: #EBF3FF;
-            padding: 20px 0;
+        }
+
+        .graphic-container svg {
+            width: 120px;
+            height: 120px;
         }
 
         .media-caption {
@@ -273,18 +278,15 @@
 
             <div class="media-gallery">
                 
-                <!-- Media Block 1: Migrated Students Snapshot -->
+                <!-- Media Block 1: Migrated Students Snapshot (Unblockable Vector) -->
                 <div class="media-block">
-                    <img src="https://wikimedia.org" alt="Graduation icon vector graphics">
+                    <div class="graphic-container">
+                        <!-- Embedded Graduation Cap Vector -->
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                            <path d="M12 3L1 8L12 13L21 9L12 3Z" fill="#002B7F"/>
+                            <path d="M5 11.5V16.5C5 18.5 8 20 12 20C16 20 19 18.5 19 16.5V11.5" stroke="#002B7F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 9V15" stroke="#E11B22" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="media-caption" style="border-top: 1px solid var(--border);">
                         <strong>Figure 1: Migrated Students Community Tracks</strong><br>
-                        A structural tracking metric following international scholars executing successful transitions across top-ranking metropolitan Australian educational facilities.
-                        <span class="credits">📸 <strong>Graphic Asset:</strong> Vector Archive Educational Content Directory Service</span>
-                    </div>
-                </div>
-
-                <!-- Media Block 2: Occupation List Table -->
-                <div class="media-block">
-                    <div class="media-caption" style="background: var(--light); font-weight: bold;">
-                        Figure 2: Current Priority Occupation Fields for Graduates
-                    </div>
