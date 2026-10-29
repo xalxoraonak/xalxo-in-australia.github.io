@@ -127,12 +127,15 @@
         .table-container {
             overflow-x: auto;
             margin: 20px 0;
+            border: 1px solid var(--border);
+            border-radius: 6px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
+            background: white;
         }
 
         th, td {
@@ -164,14 +167,18 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: block;
+            width: 100%;
         }
 
         .media-block img {
+            display: block;
             width: 100%;
             height: auto;
+            min-height: 250px;
             max-height: 450px;
             object-fit: cover;
-            display: block;
+            background-color: #E5E7EB;
         }
 
         .media-caption {
@@ -263,13 +270,13 @@
 
             <div class="media-gallery">
                 
-                <!-- Media Block 1: Migrated Students Snapshot (Real Image) -->
+                <!-- Media Block 1: Migrated Students Snapshot -->
                 <div class="media-block">
-                    <img src="https://unsplash.com" alt="International students on campus">
+                    <img src="https://picsum.photos" alt="International students campus life">
                     <div class="media-caption">
                         <strong>Figure 1: Migrated Students Community</strong><br>
                         A diverse community of international scholars collaborating outside a campus hub, showcasing the inclusive academic atmosphere found across Australian institutions.
-                        <span class="credits">📸 <strong>Image Credit:</strong> Photo by Vasiliy Kovalyov via Unsplash Core Contributors / Open Education Platform License</span>
+                        <span class="credits">📸 <strong>Image Credit:</strong> Universal Open Campus Repository / Global Education Dataset License</span>
                     </div>
                 </div>
 
@@ -279,7 +286,3 @@
                         <strong>Figure 2: Current Priority Occupation Fields for Graduates</strong>
                     </div>
                     <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Sector Pathway</th>
