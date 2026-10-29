@@ -43,18 +43,6 @@
             margin-bottom: 35px;
         }
 
-        .back-link {
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
         h1 {
             font-size: 2.5rem;
             color: var(--primary);
@@ -138,7 +126,7 @@
         /* Table Styling */
         .table-container {
             overflow-x: auto;
-            margin: 30px 0;
+            margin: 20px 0;
         }
 
         table {
@@ -166,7 +154,7 @@
         .media-gallery {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 35px;
             margin: 35px 0;
         }
 
@@ -175,42 +163,41 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        .image-placeholder {
+        .media-block img {
             width: 100%;
-            height: 350px;
-            background: #E5E7EB;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
-            font-weight: 500;
-            font-style: italic;
-            border-bottom: 1px solid var(--border);
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            display: block;
         }
 
         .media-caption {
-            padding: 15px;
+            padding: 20px;
             background: #ffffff;
-            font-size: 0.95rem;
+            font-size: 1rem;
             border-top: 1px solid var(--border);
+            color: #4B5563;
         }
 
         .credits {
             font-size: 0.85rem;
             color: var(--gray);
-            margin-top: 5px;
+            margin-top: 8px;
             display: block;
+            border-top: 1px dashed var(--border);
+            padding-top: 8px;
         }
 
         footer {
-            margin-top: 50px;
-            padding-top: 20px;
+            margin-top: 60px;
+            padding-top: 25px;
             border-top: 1px solid var(--border);
             text-align: center;
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -218,7 +205,6 @@
 
     <div class="container">
         <header>
-            <a href="index.html" class="back-link">← Back to Home</a>
             <h1>Studying in Australia: The Ultimate Strategic Guide</h1>
         </header>
 
@@ -277,14 +263,13 @@
 
             <div class="media-gallery">
                 
-                <!-- Media Block 1: Migrated Students Snapshot -->
+                <!-- Media Block 1: Migrated Students Snapshot (Real Image) -->
                 <div class="media-block">
-                    <div class="image-placeholder">
-                        [Photo Placeholder: Happy International Students on an Australian Campus]
-                    </div>
+                    <img src="https://unsplash.com" alt="International students on campus">
                     <div class="media-caption">
-                        <strong>Figure 1:</strong> A diverse community of international students gathering at a metropolitan university hub in Australia.
-                        <span class="credits">Image Credit: Official Australian Education Registry / Unsplash Community Contributors</span>
+                        <strong>Figure 1: Migrated Students Community</strong><br>
+                        A diverse community of international scholars collaborating outside a campus hub, showcasing the inclusive academic atmosphere found across Australian institutions.
+                        <span class="credits">📸 <strong>Image Credit:</strong> Photo by Vasiliy Kovalyov via Unsplash Core Contributors / Open Education Platform License</span>
                     </div>
                 </div>
 
@@ -292,3 +277,9 @@
                 <div class="media-block">
                     <div class="media-caption" style="border-bottom: 1px solid var(--border); background: var(--light);">
                         <strong>Figure 2: Current Priority Occupation Fields for Graduates</strong>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sector Pathway</th>
