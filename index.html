@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Pause, check, and share responsibly. Explore SafeScroll Foundation's Verify Before You Share digital media literacy campaign."
+  />
+
+  <title>Verify Before You Share | SafeScroll Foundation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --blue: #1b3a93;
+      --ink: #10203a;
+      --muted: #43536e;
+      --yellow: #ffd23f;
+      --border: #dce5f3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(
+        135deg,
+        #eaf3ff 0%,
+        #f7fbff 45%,
+        #fff6e5 100%
+      );
+      line-height: 1.75;
+      overflow-x: hidden;
+      isolation: isolate;
+    }
+
+    a {
+      color: var(--blue);
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 5px;
+      border-radius: 4px;
+    }
+
+    /* Decorative backgrounds, not generated photographs. */
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(75px);
+      opacity: 0.4;
+      animation: float 16s ease-in-out infinite alternate;
+    }
+
+    .blob-one {
+      width: 420px;
+      height: 420px;
+      background: #7fb2ff;
+      top: -120px;
+      left: -120px;
+    }
+
+    .blob-two {
+      width: 360px;
+      height: 360px;
+      background: var(--yellow);
+      bottom: -100px;
+      right: -100px;
+      animation-delay: -5s;
+    }
+
+    .blob-three {
+      width: 280px;
+      height: 280px;
+      background: #ffb6c1;
+      top: 45%;
+      right: 8%;
+      animation-delay: -9s;
+    }
+
+    @keyframes float {
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+      to {
+        transform: translate(30px, -25px) scale(1.08);
+      }
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      padding: 10px 16px;
+      background: white;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    nav {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1080px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+
+    header {
+      max-width: 920px;
+      margin: auto;
+      padding: 72px 24px 36px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Poppins", sans-serif;
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      font-size: clamp(2.5rem, 7vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    h1 span {
+      color: var(--blue);
+    }
+
+    .subtitle {
+      max-width: 640px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .meta {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .header-button {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .header-button:hover {
+      transform: translateY(-3px);
+    }
+
+    main {
+      max-width: 860px;
+      margin: auto;
+      padding: 10px 24px 60px;
+    }
+
+    .card {
+      margin-bottom: 28px;
+      padding: 34px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      box-shadow: 0 16px 40px rgba(27, 58, 147, 0.08);
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      background: #e7edf7;
+    }
+
+    figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.45rem, 4vw, 1.9rem);
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-label {
+      margin-bottom: 10px;
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+    }
+
+    .highlight {
+      margin-top: 22px;
+      padding: 18px 20px;
+      background: #fff8df;
+      border-left: 5px solid var(--yellow);
+      border-radius: 12px;
+      color: #493a00;
+      font-weight: 600;
+    }
+
+    .sift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .sift-card {
+      padding: 22px;
+      background: #f5f8ff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sift-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(27, 58, 147, 0.1);
+    }
+
+    .step-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .sift-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .sift-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .checklist {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .checklist li {
+      margin-bottom: 14px;
+      padding-left: 5px;
+    }
+
+    .checklist li::marker {
+      color: var(--blue);
+    }
+
+    .example {
+      background: #eef4ff;
+      border-color: #dce6ff;
+    }
+
+    .example-label {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: white;
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .cta {
+      background: linear-gradient(120deg, #18347f, #3157b0);
+      color: white;
+      text-align: center;
+      border: none;
+    }
+
+    .cta p {
+      color: #f0f4ff;
+    }
+
+    .hashtag {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 10px 18px;
+      background: var(--yellow);
+      color: var(--ink);
+      border-radius: 999px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .credits {
+      font-size: 0.9rem;
+    }
+
+    .credits ul {
+      padding-left: 22px;
+    }
+
+    .credits li {
+      margin-bottom: 14px;
+    }
+
+    footer {
+      max-width: 820px;
+      margin: auto;
+      padding: 0 24px 40px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 48px;
+      }
+
+      main {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .card {
+        padding: 24px;
+        border-radius: 20px;
+      }
+
+      .sift-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .blob {
+        animation: none;
+      }
+
+      .sift-card,
+      .header-button {
+        transition: none;
+      }
+
+      .sift-card:hover,
+      .header-button:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to blog content</a>
+
+  <div class="background" aria-hidden="true">
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+  </div>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top">SafeScroll Foundation</a>
+
+      <div class="nav-links">
+        <a href="#why-check">Why Check?</a>
+        <a href="#sift">SIFT Method</a>
+        <a href="#conclusion">Conclusion</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top">
+    <div class="badge">Digital Media Literacy</div>
+
+    <h1>Verify Before<br />You <span>Share.</span></h1>
+
+    <p class="subtitle">
+      Before you forward that headline, screenshot, or video,
+      take a moment to check the story behind it.
+    </p>
+
+    <p class="meta">
+      A campaign by SafeScroll Foundation · Academic project
+    </p>
+
+    <a class="header-button" href="#sift">Learn the four steps</a>
+  </header>
+
+  <main id="main-content">
+    <article aria-label="Verify Before You Share blog">
+
+      <section class="card" aria-label="Featured photograph">
+        <figure>
+          <img
+            class="photo"
+            src="https://unsplash.com/photos/P_5mirRrg0k/download?w=1400"
+            alt="A magnifying glass beside a laptop."
+            fetchpriority="high"
+          />
+
+          <figcaption>
+            Photo by
+            <a
+              href="https://unsplash.com/photos/magnifying-glass-sits-near-a-laptop-on-a-table-P_5mirRrg0k"
+              target="_blank"
+              rel="noopener noreferrer"
+            >MJ Duford</a>
+            on Unsplash. Used as an illustrative photograph.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="card" id="why-check">
+        <p class="section-label">Start with a pause</p>
+        <h2>Would you share it before checking it?</h2>
+
+        <p>
+          Imagine opening your class group chat and finding an urgent
+          message: “Tomorrow’s exam has been cancelled. Forward this
+          to everyone!” There is no official notice—just a screenshot.
+          Would you pass it on?
+        </p>
+
+        <p>
+          This is the kind of moment our “Verify Before You Share”
+          campaign asks you to notice. Instead of forwarding immediately,
+          pause and look for the original announcement.
+        </p>
+
+        <div class="highlight">
+          A familiar sender is not the same thing as an original source.
+          Ask where the information first came from.
+        </div>
+      </section>
+
+      <section class="card" id="sift">
+        <p class="section-label">Your checking toolkit</p>
+        <h2>Four steps before your next share</h2>
+
+        <p>
+          Use these four prompts as a reminder to slow down,
+          investigate, and put a claim in context.
+        </p>
+
+        <div class="sift-grid">
+          <div class="sift-card">
+            <span class="step-letter" aria-hidden="true">S</span>
+            <h3>Stop</h3>
+            <p>
+              Pause before reacting. What is the claim, and do you
+              know enough about it to share it?
+            </p>
+          </div>
+
+          <div class="sift-card">
+            <span class="step-letter" aria-hidden="true">I</span>
+            <h3>Investigate the source</h3>
+            <p>
+              Find out who published the information and what
+              relevant expertise or evidence they provide.
+            </p>
+          </div>
+
+          <div class="sift-card">
+            <span class="step-letter" aria-hidden="true">F</span>
+            <h3>Find better coverage</h3>
+            <p>
+              Look beyond the post. Search for independent reporting
+              or relevant official information about the claim.
+            </p>
+          </div>
+
+          <div class="sift-card">
+            <span class="step-letter" aria-hidden="true">T</span>
+            <h3>Trace the original</h3>
+            <p>
+              Follow a quote, image, or claim back to its original
+              context. Check what the full source actually says.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card example">
+        <span class="example-label">Hypothetical example</span>
+        <h2>Back to that exam message</h2>
+
+        <p>
+          Rather than forwarding the screenshot, open your college’s
+          official notice page or ask the examination office.
+          Look for a dated announcement that names the relevant exam.
+        </p>
+
+        <p>
+          If you cannot confirm it, say so: “I haven’t verified this.
+          Please check the official notice before acting on it.”
+          You can leave a claim unshared while you investigate.
+        </p>
+      </section>
+
+      <section class="card" aria-label="Illustrative photograph">
+        <figure>
+          <img
+            class="photo"
+            src="https://unsplash.com/photos/ZJUG912sIW4/download?w=1400"
+            alt="A person holding a magnifying glass."
+            loading="lazy"
+          />
+
+          <figcaption>
+            Photo by
+            <a
+              href="https://unsplash.com/photos/a-person-holding-a-magnifying-glass-with-a-finger-on-it-ZJUG912sIW4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >ThisisEngineering</a>
+            on Unsplash. Used as an illustrative photograph.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="card">
+        <p class="section-label">Make it a habit</p>
+        <h2>Your before-sharing checklist</h2>
+
+        <ul class="checklist">
+          <li>
+            <strong>Read the full story.</strong>
+            Does the headline match what the article actually says?
+          </li>
+
+          <li>
+            <strong>Check the date and location.</strong>
+            Is the post about the event being discussed now?
+          </li>
+
+          <li>
+            <strong>Look for the original source.</strong>
+            Can you find the full announcement, interview, or report?
+          </li>
+
+          <li>
+            <strong>Check the image’s context.</strong>
+            Try a reverse-image search and compare where else it appears.
+          </li>
+
+          <li>
+            <strong>Be honest about uncertainty.</strong>
+            If you cannot verify the claim, do not present it as confirmed.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="card" id="conclusion">
+        <p class="section-label">The takeaway</p>
+        <h2>Conclusion: Small Pause, Big Difference</h2>
+
+        <p>
+          A safer digital world starts with the choices we make
+          every day. Before sharing a headline, image, or video,
+          take a moment to question it, check its source,
+          and look for reliable coverage.
+        </p>
+
+        <p>
+          You do not have to know everything—you just need to
+          be willing to check. With SafeScroll Foundation’s
+          “Verify Before You Share” campaign, let’s make
+          thoughtful sharing a daily habit.
+        </p>
+
+        <div class="highlight">
+          Pause. Check. Share responsibly. Be part of the solution,
+          not the spread.
+        </div>
+      </section>
+
+      <section class="card cta">
+        <h2>Be the person who checks</h2>
+
+        <p>
+          Start with your next share. Ask where it came from,
+          look for context, and encourage your friends to do the same.
+        </p>
+
+        <span class="hashtag">#VerifyBeforeYouShare</span>
+      </section>
+
+      <section class="card credits" id="credits">
+        <h2>Image credits &amp; learning resource</h2>
+
+        <ul>
+          <li>
+            Featured photograph:
+            <a
+              href="https://unsplash.com/photos/magnifying-glass-sits-near-a-laptop-on-a-table-P_5mirRrg0k"
+              target="_blank"
+              rel="noopener noreferrer"
+            >MJ Duford / Unsplash</a>.
+          </li>
+
+          <li>
+            Magnifying-glass photograph:
+            <a
+              href="https://unsplash.com/photos/a-person-holding-a-magnifying-glass-with-a-finger-on-it-ZJUG912sIW4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >ThisisEngineering / Unsplash</a>.
+          </li>
+
+          <li>
+            Image licensing information:
+            <a
+              href="https://unsplash.com/license"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Unsplash License</a>.
+          </li>
+
+          <li>
+            Further learning:
+            <a
+              href="https://www.google.com/search?q=Mike+Caulfield+SIFT+four+moves"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Find Mike Caulfield’s SIFT resources</a>.
+          </li>
+        </ul>
+
+        <p>
+          Photographs illustrate the topic. They do not imply that the
+          people pictured or the photographers endorse this campaign.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>SafeScroll Foundation · Think first. Share wisely.</p>
+    <p>
+      SafeScroll Foundation is a fictional nonprofit created
+      for an academic project.
+    </p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>
