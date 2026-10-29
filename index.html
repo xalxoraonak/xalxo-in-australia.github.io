@@ -123,12 +123,11 @@
             font-weight: 500;
         }
 
-        /* Table Styling */
+        /* Table Styling Fixed */
         .table-container {
             overflow-x: auto;
-            margin: 20px 0;
-            border: 1px solid var(--border);
-            border-radius: 6px;
+            margin: 0;
+            border-top: 1px solid var(--border);
         }
 
         table {
@@ -147,6 +146,11 @@
             background-color: var(--primary);
             color: white;
             font-weight: 600;
+        }
+
+        td {
+            color: #374151;
+            font-size: 1rem;
         }
 
         tr:hover {
@@ -175,17 +179,16 @@
             display: block;
             width: 100%;
             height: auto;
-            min-height: 250px;
-            max-height: 450px;
-            object-fit: cover;
-            background-color: #E5E7EB;
+            max-height: 400px;
+            object-fit: contain;
+            background-color: #EBF3FF;
+            padding: 20px 0;
         }
 
         .media-caption {
             padding: 20px;
             background: #ffffff;
             font-size: 1rem;
-            border-top: 1px solid var(--border);
             color: #4B5563;
         }
 
@@ -272,17 +275,16 @@
                 
                 <!-- Media Block 1: Migrated Students Snapshot -->
                 <div class="media-block">
-                    <img src="https://picsum.photos" alt="International students campus life">
-                    <div class="media-caption">
-                        <strong>Figure 1: Migrated Students Community</strong><br>
-                        A diverse community of international scholars collaborating outside a campus hub, showcasing the inclusive academic atmosphere found across Australian institutions.
-                        <span class="credits">📸 <strong>Image Credit:</strong> Universal Open Campus Repository / Global Education Dataset License</span>
+                    <img src="https://wikimedia.org" alt="Graduation icon vector graphics">
+                    <div class="media-caption" style="border-top: 1px solid var(--border);">
+                        <strong>Figure 1: Migrated Students Community Tracks</strong><br>
+                        A structural tracking metric following international scholars executing successful transitions across top-ranking metropolitan Australian educational facilities.
+                        <span class="credits">📸 <strong>Graphic Asset:</strong> Vector Archive Educational Content Directory Service</span>
                     </div>
                 </div>
 
                 <!-- Media Block 2: Occupation List Table -->
                 <div class="media-block">
-                    <div class="media-caption" style="border-bottom: 1px solid var(--border); background: var(--light);">
-                        <strong>Figure 2: Current Priority Occupation Fields for Graduates</strong>
+                    <div class="media-caption" style="background: var(--light); font-weight: bold;">
+                        Figure 2: Current Priority Occupation Fields for Graduates
                     </div>
-                    <div class="table-container">
